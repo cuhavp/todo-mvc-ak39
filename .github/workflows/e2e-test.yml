@@ -5,7 +5,10 @@ on:
     branches: [ "main" ]
     paths-ignore: [ '**.md' ]
 
-
+permissions:
+    id-token: write
+    contents: read
+    checks: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -34,7 +37,3 @@ jobs:
           name: Test Results
           path: ${{ github.workspace }}/target/surefire-reports/TEST-*.xml
           reporter: java-junit
-          permissions:
-            id-token: write
-            contents: read
-            checks: write
