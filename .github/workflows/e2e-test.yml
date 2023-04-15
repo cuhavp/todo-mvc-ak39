@@ -34,3 +34,7 @@ jobs:
           name: Test Results
           path: ${{ github.workspace }}/target/surefire-reports/TEST-*.xml
           reporter: java-junit
+          permissions:
+            id-token: write
+            contents: read
+            checks: write
