@@ -31,8 +31,10 @@ jobs:
     - name: Run Selenium Test
       run: mvn clean test
 
-    - name: Publish Test Report
-      uses: scacap/action-surefire-report@v1
+    - name: Test Report
+      uses: dorny/test-reporter@v1
+      if: success() || failure()
       with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./target/surefire-reports/
+          name: Test Results
+          path: ${{ github.workspace }}/target/surefire-reports/TEST-*.xml
+          reporter: java-junit
