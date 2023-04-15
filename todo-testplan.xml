@@ -1,0 +1,8 @@
+<suite name="Todo MVC">
+    <parameter name="browser" value="Chrome"/>
+    <test name="Demo">
+        <classes>
+            <class name="suites.TodoMVCTest"/>
+        </classes>
+    </test>
+</suite>
